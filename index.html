@@ -1,0 +1,143 @@
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Dynamic SVG Polygon</h1>
+
+    <!-- Angle Controls -->
+    <div class="controls">
+        <div>
+            <label>Angle 0-1: 
+                <button onclick="adjustAngle('angle01', -1)">-</button>
+                <input type="number" id="angle01" value="0" min="0" max="360">
+                <button onclick="adjustAngle('angle01', 1)">+</button>
+            </label>
+        </div>
+        <div>
+            <label>Angle 0-4: 
+                <button onclick="adjustAngle('angle04', -1)">-</button>
+                <input type="number" id="angle04" value="90" min="0" max="360">
+                <button onclick="adjustAngle('angle04', 1)">+</button>
+            </label>
+        </div>
+        <div>
+            <label>Angle 1-2: 
+                <button onclick="adjustAngle('angle12', -1)">-</button>
+                <input type="number" id="angle12" value="90" min="0" max="360">
+                <button onclick="adjustAngle('angle12', 1)">+</button>
+            </label>
+        </div>
+        <div>
+            <label>Angle 4-3: 
+                <button onclick="adjustAngle('angle34', -1)">-</button>
+                <input type="number" id="angle34" value="0" min="0" max="360">
+                <button onclick="adjustAngle('angle34', 1)">+</button>
+            </label>
+        </div>
+    </div>
+
+    <!-- Distance Controls -->
+    <div class="distance-controls">
+        <button onclick="updateDistance('d01')">Set Distance 0-1</button>
+        <button onclick="updateDistance('d40')">Set Distance 0-4</button>
+        <button onclick="updateDistance('d12')">Set Distance 1-2</button>
+        <button onclick="updateDistance('d34')">Set Distance 3-4</button>
+    </div>
+
+    <button id="spawn-rectangle">SPAWN RECTANGLE</button>
+    <button id="spawn-fromage">SPAWN FROMAGE</button>
+    <label for="rotate">Rotate:
+        <input type="number" name="" id="rotate">
+        <button id="rotate-selected">ROTATE</button>
+    </label>
+    <button id="delete-shape">DELETE SHAPE</button>
+    <label for="size">Sizes
+        <input type="number" name="" id="seddariwidth">
+        <input type="number" name="" id="length">
+        <button id="size-btn">SET SIZES</button>
+    </label>
+
+    <div class="controls">
+        <h1>Textile</h1>
+        <button class="texture">
+          <img src="https://i.ibb.co/YZQcD2n/ROYAL-B-1.png" alt="">
+          <span>ROYAL B-1</span>
+        </button>  
+        <button class="texture">
+          <img src="https://i.ibb.co/HPSRsLB/ROYAL-B-2.png" alt="">
+          <span>ROYAL B-2</span>
+        </button>  
+        <button class="texture">
+          <img src="https://i.ibb.co/c8THfFy/ROYAL-B-3.png" alt="">
+          <span>ROYAL B-3</span>
+        </button> 
+        <button class="texture">
+          <img src="https://i.ibb.co/nPykxnB/ROYAL-B-5.png" alt="">
+          <span>ROYAL B-5</span>
+        </button>  
+        <button class="texture">
+          <img src="https://i.ibb.co/hKPSVRk/ROYAL-B-6.png" alt="">
+          <span>ROYAL B-6</span>
+        </button>  
+        <button class="texture">
+          <img src="https://i.ibb.co/YQVbNDW/ROYAL-B-7.png" alt="">
+          <span>ROYAL B-7</span>
+        </button>  
+          <button class="texture">
+          <img src="https://i.ibb.co/MRk5ZvC/ROYAL-B-10.png" alt="">
+            <span>ROYAL B-10</span>
+        </button>
+        <button class="texture">
+          <img src="https://i.ibb.co/W3V66k3/ROYAL-B-14.png" alt="">
+          <span>ROYAL B-14</span>
+        </button>
+        <button class="texture">
+          <img src="https://i.ibb.co/RSSSPfW/ROYAL-B-17.png" alt="">
+          <span>ROYAL B-17</span>
+        </button>
+        <button class="texture">
+          <img src="https://i.ibb.co/CK9vcd1/ROYAL-B-22.png" alt="">
+          <span>ROYAL B-22</span>
+        </button>
+        <button class="texture">
+          <img src="https://i.ibb.co/QpPrs0S/ROYAL-B-26.png" alt="">
+          <span>ROYAL B-26</span>
+        </button>
+        <button class="texture">
+          <img src="https://i.ibb.co/1M0y4Qx/ROYAL-B-28.png" alt="">
+          <span>ROYAL B-28</span>
+        </button>  
+        <button class="texture">
+          <img src="https://i.ibb.co/4jdDwY1/ROYAL-B-29.png" alt="">
+          <span>ROYAL B-29</span>
+        </button>
+        <button class="texture">
+          <img src="https://i.ibb.co/1Tpf4xx/ROYAL-B-30.png" alt="">
+          <span>ROYAL B-30</span>
+        </button>    
+        <button class="texture">
+          <img src="https://i.ibb.co/z7NSXKh/ROYAL-B-31.png" alt="">
+          <span>ROYAL B-31</span>
+        </button>
+        <button class="texture">
+          <img src="https://i.ibb.co/hVpyT2d/ROYAL-B-32.png" alt="">
+          <span>ROYAL B-32</span>
+        </button>  
+        <button class="texture">
+          <img src="https://i.ibb.co/QpHSYfs/ROYAL-B-35.png" alt="">
+          <span>ROYAL B-35</span>
+        </button>    
+      </div>
+
+    <!-- SVG Display -->
+    <div class="container">
+        <svg id="polygon-svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+        </svg>
+    </div>
+
+    <!-- Clip Path Generator -->
+    <button onclick="generateClipPath()">Generate Clip Path</button>
+    <div class="clip-path" id="clipPathOutput"></div>
+    <!-- <script src="index.js"></script> -->
+    <script type="module" src="drag.js"></script>
+</body>

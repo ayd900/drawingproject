@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.controls, .distance-controls, .clip-path {
+    margin-bottom: 20px;
+}
+
+.controls div {
+    margin-bottom: 10px;
+}
+
+.clip-path {
+    font-size: 0.9em;
+    color: darkgreen;
+    word-wrap: break-word;
+    max-width: 90%;
+}
+
+svg {
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+text {
+    font-size: 14px;
+    fill: red;
+}
+
+.container {
+  border: 5px solid black;
+  position: relative;
+}
+
+.drop-active {
+    stroke: purple;
+    stroke-width: 5px;
+}
+
+.drop-target {
+    fill: gray;
+}
+
+.controls {
+    margin-bottom: 15px;
+}
+
+.texture {
+    width: 100px;
+    height: 50px;
+    padding: 0px;
+}
+  
+.texture img {
+    height: 100%;
+    width: 100%;
+}
